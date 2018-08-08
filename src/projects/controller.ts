@@ -18,7 +18,7 @@ export default class ProjectController {
   async getProject(
     @Param('id') id: number
   ) {
-    const project = await Project.findOne(id)
+    const project = await Project.findOne(id, { relations: ["tools"] })
     if (!project) throw new NotFoundError('Cannot find project')
     return project
   }

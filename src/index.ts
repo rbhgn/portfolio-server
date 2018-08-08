@@ -9,6 +9,7 @@ import UserController from './users/controller';
 import LoginController from './logins/controller';
 import User from './users/entity';
 import ProjectController from './projects/controller';
+import ToolController from './tools/controller';
 
 
 
@@ -21,7 +22,8 @@ useKoaServer(app, {
   controllers: [
     UserController,
     LoginController,
-    ProjectController
+    ProjectController,
+    ToolController
   ],  
   authorizationChecker: (action: Action) => {
     const header: string = action.request.headers.authorization
