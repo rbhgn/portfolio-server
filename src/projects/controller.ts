@@ -55,9 +55,9 @@ export default class ProjectController {
     @Param('id') id: number,
     @Body() update: Partial<Project>,
   ) {
-    const project = await Project.findOne(id)
+    const project = await Project.findOne(id, { relations: ["tools"] })
     if (!project) throw new NotFoundError('Cannot find page')
-    let newUpdate = {likes: 0, web: 0, gitHub: 0}
+    let newUpdate = {likes: project.likes, web: project.web, gitHub: project.gitHub}
     if (update.likes) newUpdate.likes = project.likes + (+update.likes)
     if (update.web) newUpdate.web = project.web + (+update.web)
     if (update.gitHub) newUpdate.gitHub = project.gitHub + (+update.gitHub)
