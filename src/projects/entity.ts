@@ -18,6 +18,9 @@ export default class Project extends BaseEntity {
     @Column('text', { nullable:true, default: "http://www.angrybirdsnest.com/wp-content/uploads/2011/09/Angry-Birds-Seasons-Mooncake-Festival-Level-2-17.jpg" })
     img: string
 
+    @Column('text', { nullable:true, default: "http://www.angrybirdsnest.com/wp-content/uploads/2011/09/Angry-Birds-Seasons-Mooncake-Festival-Level-2-17.jpg" })
+    imgSmall: string
+
     @Column('text', { nullable:true })
     githubRepository: string
 
